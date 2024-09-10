@@ -41,20 +41,20 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
 
     // Calculate scores based on key stats
     const score1 =
-      (fighter1Details.features.dps * 0.4) +
-      (fighter1Details.features.maneuverability * 0.2) +
-      (fighter1Details.features.max_speed * 0.1) +
-      (fighter1Details.features.rate_of_climbing * 0.1) +
-      (fighter1Details.features.hp * 0.2) +
-      (Math.random() * 10); // Adding some randomness
+      fighter1Details.features.dps * 0.4 +
+      fighter1Details.features.maneuverability * 0.2 +
+      fighter1Details.features.max_speed * 0.1 +
+      fighter1Details.features.rate_of_climbing * 0.1 +
+      fighter1Details.features.hp * 0.2 +
+      Math.random() * 10; // Adding some randomness
 
     const score2 =
-      (fighter2Details.features.dps * 0.4) +
-      (fighter2Details.features.maneuverability * 0.2) +
-      (fighter2Details.features.max_speed * 0.1) +
-      (fighter2Details.features.rate_of_climbing * 0.1) +
-      (fighter2Details.features.hp * 0.2) +
-      (Math.random() * 10); // Adding some randomness
+      fighter2Details.features.dps * 0.4 +
+      fighter2Details.features.maneuverability * 0.2 +
+      fighter2Details.features.max_speed * 0.1 +
+      fighter2Details.features.rate_of_climbing * 0.1 +
+      fighter2Details.features.hp * 0.2 +
+      Math.random() * 10; // Adding some randomness
 
     // Determine the winner and set a summary
     if (score1 > score2) {
@@ -67,7 +67,6 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
           { factor: 'Maneuverability', winner: fighter1Details.features.maneuverability, loser: fighter2Details.features.maneuverability },
           { factor: 'Max Speed', winner: fighter1Details.features.max_speed, loser: fighter2Details.features.max_speed },
           { factor: 'Rate of Climb', winner: fighter1Details.features.rate_of_climbing, loser: fighter2Details.features.rate_of_climbing },
-          
         ],
       });
     } else {
@@ -80,7 +79,6 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
           { factor: 'Maneuverability', winner: fighter2Details.features.maneuverability, loser: fighter1Details.features.maneuverability },
           { factor: 'Max Speed', winner: fighter2Details.features.max_speed, loser: fighter1Details.features.max_speed },
           { factor: 'Rate of Climb', winner: fighter2Details.features.rate_of_climbing, loser: fighter1Details.features.rate_of_climbing },
-         
         ],
       });
     }
@@ -88,7 +86,13 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
 
   return (
     <div>
-      <button onClick={calculateBattleOutcome}>Start Battle</button>
+      <button className="btn-76" onClick={calculateBattleOutcome}>
+        Start Battle
+        <span className="top"></span>
+        <span className="right"></span>
+        <span className="bottom"></span>
+        <span className="left"></span>
+      </button>
       {result && <h2>{result}</h2>}
       {summary && (
         <div>
