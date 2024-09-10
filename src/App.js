@@ -1,5 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
 import AircraftSelector from './components/AircraftSelector';
 import BattleSimulator from './components/BattleSimulator';
 import './App.css';
@@ -12,7 +13,6 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Step 1: Fetch the list of planes to get plane IDs
     const fetchAircraftList = async () => {
       try {
         const response = await fetch(
@@ -27,6 +27,7 @@ function App() {
             nation: plane.nation_i18n || plane.nation || 'Unknown',
             level: plane.level || 'Unknown',
             type: plane.type || 'Unknown',
+            image: plane.images?.medium || '', // Include medium size image URL
           }));
           setAircrafts(planes);
         } else {
@@ -47,8 +48,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Air Combat Simulator</h1>
-      <div className="selectors">
+      <Header />
+      <div className="selector-container">
         <AircraftSelector
           aircrafts={aircrafts}
           onSelect={setSelectedAircraft1}
