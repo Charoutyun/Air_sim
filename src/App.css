@@ -1,4 +1,4 @@
-/* src/App.css */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -15,12 +15,11 @@ body {
 }
 
 .app-header {
-  background-color: rgba(30, 42, 56, 0.8);
+ 
   color: white;
-  padding: 20px;
+  padding: 1px;
   text-align: center;
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .selector-container {
@@ -36,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .aircraft-selector label {
@@ -45,12 +45,12 @@ body {
 }
 .aircraft-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Create 2 columns of equal width */
-  gap: 15px; /* Space between grid items */
-  max-height: 400px; /* Set max height for scrolling if needed */
+  grid-template-columns: repeat(6, 1fr); /* Create 2 columns of equal width */
+  gap: 5px; /* Space between grid items */
+  max-height: 500px; /* Set max height for scrolling if needed */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px;
-  background-color: rgba(46, 59, 78, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
 
@@ -65,11 +65,20 @@ body {
 }
 
 .aircraft-grid::-webkit-scrollbar-thumb {
-  background-color: #007bff; /* Color of the scrollbar thumb */
+  background-color: #000000; /* Color of the scrollbar thumb */
   border-radius: 10px; /* Round the scrollbar thumb */
   border: 2px solid transparent; /* Add space around the thumb for a sleeker look */
   background-clip: content-box; /* Ensures the thumb maintains a smaller size */
 }
+
+
+/* Ensure the Factor column in the summary stats table is centered */
+.stats-summary table th:first-child,
+.stats-summary table td:first-child {
+  text-align: center !important; /* Use !important to override any conflicting styles */
+}
+
+
 
 .aircraft-card {
   display: flex;
@@ -126,14 +135,19 @@ body {
 }
 
 .stats-summary {
-  margin-top: 20px;
-  background-color: rgba(46, 59, 78, 0.8);
+ 
+  flex-direction: column; 
+  align-items: center; 
+  margin: 0 auto; 
   padding: 20px;
+  background-color: rgba(46, 59, 78, 0.8);
   border-radius: 10px;
-  width: 90%;
+  width: 90%; 
   max-width: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white; 
 }
+
 
 .stats-summary table {
   width: 100%;
@@ -143,17 +157,17 @@ body {
 }
 
 .stats-summary th, .stats-summary td {
-  border: 1px solid #444;
+  border: 1px solid #ffffff;
   padding: 10px;
   text-align: center;
 }
 
 .stats-summary th {
-  background-color: #394a5a;
+  background-color: #000000b1;
 }
 
 .stats-summary tr:nth-child(even) {
-  background-color: #3e4d5c;
+  background-color: #000000b1;
 }
 
 
@@ -265,4 +279,30 @@ body {
   --progress: 100%;
   opacity: 1;
   transition: transform 0.2s linear 0.6s;
+}
+
+.button-container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+  margin: 20px 0; 
+  padding: 0; 
+  background: none; 
+  border: none; 
+}
+
+.button-container .btn-76 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 1.2rem 3rem;
+  text-transform: uppercase;
+  transition: 0.2s linear 0.1s;
+  outline: 4px solid #fff;
+  outline-offset: -4px;
+  box-shadow: 0 0 5px var(--neon), 0 0 25px var(--neon), 0 0 50px var(--neon), 0 0 100px var(--neon);
 }

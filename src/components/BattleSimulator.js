@@ -85,23 +85,25 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
   };
 
   return (
-    <div>
-      <button className="btn-76" onClick={calculateBattleOutcome}>
-        Start Battle
-        <span className="top"></span>
-        <span className="right"></span>
-        <span className="bottom"></span>
-        <span className="left"></span>
-      </button>
+    <div className="battle-simulator">
+      <div className="button-container">
+        <button className="btn-76" onClick={calculateBattleOutcome}>
+          Start Battle
+          <span className="top"></span>
+          <span className="right"></span>
+          <span className="bottom"></span>
+          <span className="left"></span>
+        </button>
+      </div>
       {result && <h2>{result}</h2>}
       {summary && (
-        <div>
+        <div className="stats-summary">
           <h3>Summary of Stats:</h3>
           <p>{summary.winner} vs. {summary.loser}</p>
           <table>
             <thead>
               <tr>
-                <th>Factor</th>
+                <th>Factor</th> {/* The Factor column header */}
                 <th>{summary.winner}</th>
                 <th>{summary.loser}</th>
               </tr>
@@ -109,7 +111,7 @@ const BattleSimulator = ({ aircraft1, aircraft2, aircrafts }) => {
             <tbody>
               {summary.stats.map((stat, index) => (
                 <tr key={index}>
-                  <td>{stat.factor}</td>
+                  <td style={{ textAlign: 'center' }}>{stat.factor}</td> {/* Inline style added for testing */}
                   <td>{stat.winner}</td>
                   <td>{stat.loser}</td>
                 </tr>
